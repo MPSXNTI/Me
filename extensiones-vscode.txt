@@ -1,0 +1,14 @@
+WallabyJs.console-ninja
+usernamehw.errorlens
+oderwat.indent-rainbow
+SirTori.indenticator
+christian-kohler.path-intellisense
+RuDevIO.evangelion-theme
+PKief.material-icon-theme
+miguelsolorio.fluent-icons
+-
+tomoki1207.pdf
+ms-python.python
+-
+ms-vscode.live-server
+kisstkondoros.vscode-gutter-preview
