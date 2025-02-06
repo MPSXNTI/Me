@@ -1,0 +1,147 @@
+                            /* HTML */
+    /* header.header>nav.nav>ul.ul>li.li{item $}*4  (para atajos) */
+    /* CONTROL+SHIFT+L (para modificar varios lugares a la vez) */
+    /* !+TAB  (para hacer la estructura de html mas rapido) */
+    /* ul>li*6  (para crear listas mas rapido) */
+
+/* TIPOS DE SELECTORES */
+
+/* Selector universal, permite agregar estilos globales a todo el documento HTML. */
+* {
+    margin: 0;
+}
+
+/* Selector de tipo. */
+h1 {
+    font-size: 30px;
+}
+
+/* Selector de clase. */
+.titulo {
+    font-size: 30px;
+}
+
+/* Selector de tipo ID. */
+#titulo {
+    font-size: 30px;
+}
+
+/* Selector de atributos, se identifica el elemento HTML, el nombre del atributo y el valor del atributo. */
+input[type="text"] {
+    color: red;
+}
+
+/* Selector de hermano adyacente, todas las etiquetas p que esten inmediatamente en un div tendran el estilo. */
+div + p {
+    color: green;
+}
+
+/* Selector de hermano general, todas las etiquetas p que esten dentro de un div tendran el estilo sin importar si estan inmediatamente. */
+div ~ p {
+    color: blue;
+}
+
+/* Selector de hijo directo, todas las etiquetas p que sean hijas directas de una etiqueta div tendran el estilo. */
+div > p {
+    color: red;
+}
+
+/* Combinador de descendientes, todas las etiquetas p que esten dentro de un div tendran el estilo. */
+div p {
+    color: orange;
+}
+
+
+
+.item {
+    scale: 1.2;
+}
+
+.item {
+    rotate: 45deg;
+}
+
+.item {
+    translate: 1rem;
+}
+
+
+
+/* Forma larga */
+
+/* padding */
+.item {
+    padding-top: 30px;
+    padding-right: 10px;
+    padding-bottom: 45px;
+    padding-left: 20px;
+}
+
+/* margin */
+.item {
+    margin-top: 1rem;
+    margin-right: 3rem;
+    margin-bottom: 5rem;
+    margin-left: 2.5rem;
+}
+
+/* border */
+.item {
+    border-width: 10px;
+    border-style: solid;
+    border-color: black;
+}
+
+/* position */
+.item {
+    position: absolute;
+    top: 20%;
+    right: 100px;
+    bottom: 250px;
+    left: 50%;
+}
+
+/* Forma corta */
+
+/* padding */
+.item {
+    padding: 30px 10px 45px 20px;
+}
+
+/* margin */
+.item {
+    margin: 1rem 3rem 5rem 2.5rem;
+}
+
+/* border */
+.item {
+    border: 10px solid black;
+}
+
+/* position */
+.item {
+    position: absolute;
+    inset: 20% 100px 250px 50%;
+}
+
+
+
+/* FORMAS DE CENTRAR UN DIV */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: grid;
+    place-items: center;
+}
+
+.cuadro {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
