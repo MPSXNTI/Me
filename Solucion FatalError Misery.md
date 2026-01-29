@@ -76,7 +76,7 @@ El ejecutable **NUNCA**.
 Steam → Propiedades → Opciones de lanzamiento:
 
 ```text
--dx11
+-dx11 -sm5
 ```
 
 **Motivo:**
