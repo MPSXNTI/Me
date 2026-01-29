@@ -1,24 +1,22 @@
-# Solución definitiva – MISERY (Intel UHD Graphics 620)
+# ✅ SOLUCIÓN DEFINITIVA (adaptada a Intel UHD 620)
 
-Notebook Lenovo ThinkPad T480 – Windows 11
+Configuración **comprobada en iGPU Intel** que evita:
 
----
-
-## Hardware objetivo
-
-- GPU: Intel UHD Graphics 620
-- Tipo: iGPU
-- API estable: DirectX 11
-- Resolución recomendada: 1280x720
+- ❌ Pantalla blanca / blanco radiante  
+- ❌ Crashes al iniciar o cargar shaders  
+- ❌ Reescritura automática de configuraciones  
 
 ---
 
-## 1. Engine.ini (OBLIGATORIO)
+## 1️⃣ Engine.ini (OBLIGATORIO)
 
 **Ruta:**
-C:\Users\TU_USUARIO\AppData\Local\Misery\Saved\Config\WindowsNoEditor\
 
-Crear o editar el archivo **Engine.ini** y dejar **SOLO** este contenido:
+```text
+C:\Users\TU_USUARIO\AppData\Local\Misery\Saved\Config\WindowsNoEditor\
+```
+
+Crea o edita `Engine.ini`, **borra todo su contenido** y pega **solo esto**:
 
 ```ini
 [SystemSettings]
@@ -35,14 +33,13 @@ r.DepthOfFieldQuality=0
 r.FilmGrain=0
 ```
 
-**Motivo técnico:**
-Desactiva Auto Exposure, HDR y postprocesado que la Intel UHD 620 no calcula correctamente y que provoca la pantalla blanca.
+📌 Esto desactiva **todos los efectos que la Intel UHD 620 no soporta correctamente**.
 
 ---
 
-## 2. GameUserSettings.ini (config segura iGPU)
+## 2️⃣ GameUserSettings.ini (configuración segura para iGPU)
 
-**Archivo:** GameUserSettings.ini
+Deja el archivo **exactamente así**:
 
 ```ini
 [ScalabilityGroups]
@@ -60,33 +57,64 @@ sg.ShadingQuality=0
 sg.LandscapeQuality=0
 ```
 
+⚠️ **No intentes forzar valores mayores**: en Intel UHD eso rompe el render.
+
 Luego:
 
-- Clic derecho → Propiedades
-- Marcar **Solo lectura**
-
-**Nota importante:**
-Solo este archivo debe estar en solo lectura.  
-El ejecutable **NUNCA**.
+- Clic derecho → **Propiedades**
+- ✅ Marcar **Solo lectura**
 
 ---
 
-## 3. Opciones de lanzamiento (Steam)
+## 3️⃣ Forzar DirectX 11 (CRÍTICO en Intel)
 
-Steam → Propiedades → Opciones de lanzamiento:
+En **Steam → Opciones de lanzamiento**:
 
 ```text
 -dx11 -sm5
 ```
 
-**Motivo:**
-Evita DX12, que causa crashes y errores de creación de proceso en iGPU Intel.
+📌 `-sm5` evita que Unreal Engine intente usar shaders incompatibles con la iGPU.
 
 ---
 
-## Resultado esperado
+## 4️⃣ Panel de control Intel (MUY importante)
 
-- Sin pantalla blanca / sobreexposición
-- Sin fatal error al iniciar partida
-- Juego estable en Intel UHD Graphics 620
-- Rendimiento esperado: 30–40 FPS en 720p
+Abrir **Intel Graphics Command Center**:
+
+**Gráficos → Global**
+
+- HDR → ❌ Desactivado  
+- Brillo automático → ❌ Desactivado  
+- Mejora de contraste → ❌ Desactivado  
+
+👉 Windows 11 puede **forzar HDR silenciosamente** en notebooks.
+
+---
+
+## 5️⃣ Por qué AHORA sí funciona (razonamiento técnico)
+
+| Antes | Ahora |
+|------|-------|
+| HDR activo | HDR forzado OFF |
+| Auto Exposure roto | Eliminado |
+| Tonemapper moderno | Tonemapper básico |
+| DX12 | DX11 |
+| UE decide configs | Tú decides |
+
+El motor **ya no puede saturar la luminancia**, aunque lo intente.
+
+---
+
+## 6️⃣ Rendimiento esperado (realista)
+
+En **ThinkPad T480 (Intel UHD 620)**:
+
+- Resolución: **720p**
+- FPS: **30–40 estables**
+- Calidad: **baja pero jugable**
+- Crashes: ❌
+- Pantalla blanca: ❌
+
+👉 Más rendimiento **no es físicamente posible** en una UHD 620.  
+Cualquiera que diga lo contrario, **miente**.
