@@ -1,5 +1,0 @@
-flask==3.0.3
-pandas==2.2.3
-reportlab==4.4.4
-pillow==11.3.0
-tzdata==2025.2
