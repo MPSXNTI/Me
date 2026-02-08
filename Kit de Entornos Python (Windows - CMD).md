@@ -303,7 +303,7 @@ Creada para acompañar al archivo **README_Entorno_Python_VSCode.md** y facilita
 
 </details>
 
-<details><summary>requirements_example.txt</summary>
+<details><summary>requirements.txt</summary>
 
 ```txt
 flask==3.0.3
@@ -565,4 +565,3 @@ pip list
 </details>
 
 ---
-
