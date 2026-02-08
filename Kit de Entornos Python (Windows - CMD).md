@@ -201,7 +201,7 @@ Te permiten crear, reiniciar o abrir tu entorno virtual en segundos ⚡
 mi_proyecto/
  ├─ .venv/
  ├─ requirements.txt
- ├─ scripts/
+ ├─ Scripts CMD/
  │   ├─ setup_venv_from_requirements.cmd
  │   ├─ reset_venv_from_requirements.cmd
  │   ├─ provision_and_open_venv.cmd
@@ -509,7 +509,7 @@ Kit de Entornos Python (Windows - CMD)
    ```bash
    Scripts CMD\setup_venv_from_requirements.cmd
    ```
-   Este script creará un entorno `venv` e instalará las dependencias de `requirements_example.txt`.
+   Este script creará un entorno `venv` e instalará las dependencias de `requirements.txt`.
 
 4. **Activa el entorno virtual manualmente (si prefieres hacerlo tú).**
    ```bash
@@ -550,10 +550,10 @@ Kit de Entornos Python (Windows - CMD)
 python --version
 
 # Crear entorno virtual (manual)
-python -m venv venv
+python -m venv .venv
 
 # Activar entorno en CMD
-venv\Scripts\activate
+.venv\Scripts\activate
 
 # Instalar dependencias
 pip install -r requirements.txt
@@ -565,3 +565,4 @@ pip list
 </details>
 
 ---
+
