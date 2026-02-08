@@ -481,7 +481,7 @@ Kit de Entornos Python (Windows - CMD)
 ├── Doc/
 │   ├── README_Entorno_Python_VSCode.md
 │   ├── README_Scripts_CMD.md
-│   └── requirements_example.txt
+│   └── requirements.txt
 └── Scripts CMD/
     ├── open_venv_here.cmd
     ├── provision_and_open_venv.cmd
@@ -565,3 +565,4 @@ pip list
 </details>
 
 ---
+
