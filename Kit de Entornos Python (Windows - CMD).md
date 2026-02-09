@@ -221,8 +221,6 @@ mi_proyecto/
 > Esto permite que los scripts se ubiquen dentro de la carpeta `Scripts CMD/` sin afectar su funcionamiento,
 > ya que siempre operan sobre `.venv` y `requirements.txt` ubicados en la raíz.
 
-> 💡 Consejo: guarda todos los scripts dentro de la carpeta `scripts/` o en la raíz, según prefieras.
-
 ---
 
 ## 🧩 3. Descripción de cada script
@@ -577,3 +575,4 @@ pip list
 </details>
 
 ---
+
