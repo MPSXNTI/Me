@@ -128,16 +128,19 @@ Una vez que domines los pasos manuales, puedes usar estos **scripts .cmd** para 
 | `provision_and_open_venv.cmd` | Crea, instala y abre una terminal con `.venv` activo. | Para iniciar rápido y trabajar al instante. |
 | `open_venv_here.cmd` | Abre una CMD con el entorno ya activado. | Si ya existe `.venv` y solo quieres usarlo. |
 
-📁 **Ubícalos en la raíz del proyecto:**
+📁 **Estructura del proyecto en uso**
+
+Durante el trabajo diario, el proyecto utiliza la siguiente estructura:
 ```
 mi_proyecto/
  ├─ .venv/
  ├─ requirements.txt
- ├─ setup_venv_from_requirements.cmd
- ├─ reset_venv_from_requirements.cmd
- ├─ provision_and_open_venv.cmd
- └─ open_venv_here.cmd
+ ├─ Scripts CMD/
+ └─ Doc/
 ```
+- El entorno virtual (`.venv`) y `requirements.txt` viven en la raíz.
+- Los scripts CMD están organizados en la carpeta `Scripts CMD/`.
+- La documentación se mantiene separada en `Doc/`.
 
 ---
 
@@ -206,9 +209,17 @@ mi_proyecto/
  │   ├─ reset_venv_from_requirements.cmd
  │   ├─ provision_and_open_venv.cmd
  │   └─ open_venv_here.cmd
- ├─ README_Entorno_Python_VSCode.md
- └─ README_Scripts_CMD.md
+ └─ Doc/
+    ├─ README_Entorno_Python_VSCode.md
+    └─ README_Scripts_CMD.md
 ```
+
+> ℹ️ **Nota técnica**
+>  
+> Todos los scripts CMD cambian automáticamente al directorio raíz del proyecto antes de ejecutarse.
+>  
+> Esto permite que los scripts se ubiquen dentro de la carpeta `Scripts CMD/` sin afectar su funcionamiento,
+> ya que siempre operan sobre `.venv` y `requirements.txt` ubicados en la raíz.
 
 > 💡 Consejo: guarda todos los scripts dentro de la carpeta `scripts/` o en la raíz, según prefieras.
 
@@ -325,7 +336,7 @@ tzdata==2025.2
 
 ```cmd
 @echo off
-cd /d "%~dp0"
+cd /d "%~dp0.."
 if exist .venv (
   call .venv\Scripts\activate.bat
   cmd /K
@@ -340,7 +351,7 @@ if exist .venv (
 
 ```cmd
 @echo off
-cd /d "%~dp0"
+cd /d "%~dp0.."
 if not exist ".venv" (
   echo [*] Creando entorno virtual...
   python -m venv .venv
@@ -368,7 +379,7 @@ cmd /K
 
 ```cmd
 @echo off
-cd /d "%~dp0"
+cd /d "%~dp0.."
 set VENV_DIR=.venv
 
 echo =================================================
@@ -416,6 +427,7 @@ if /I "%CONFIRM%"=="S" (
 
 ```cmd
 @echo off
+cd /d "%~dp0.."
 setlocal enableextensions enabledelayedexpansion
 REM Ruta del entorno (por defecto .venv)
 set VENV_DIR=.venv
