@@ -90,11 +90,7 @@ WindowsApps\python.exe
 
 ⚠️ Si aparece esa ruta, usa explícitamente:
 
-```cmd
-py -3 --version
-```
-
-o reinstala Python desde **https://www.python.org**.
+reinstala Python desde **https://www.python.org**.
 
 📌 **Motivo técnico**: los scripts usan `python` desde el `PATH`.
 
@@ -176,37 +172,6 @@ Para borrar y recrear el entorno:
 ```
 
 El script pedirá confirmación antes de eliminar el entorno virtual.
-
----
-
-## ✅ Buenas prácticas incluidas
-
-- Entornos virtuales aislados (`.venv`)
-- Instalación segura de dependencias
-- Verificación de Python antes de ejecutar scripts
-- Evita contaminación del Python global
-- Scripts reutilizables y documentados
-
----
-
-## 📌 Recomendado
-
-Añadir un `.gitignore` con al menos:
-
-```ini
-.venv/
-__pycache__/
-```
-
----
-
-## 📎 Requisitos
-
-- Windows
-- Python 3.9+
-- Command Prompt (CMD)
-- VS Code (opcional pero recomendado)
-
 </details>
 
 ---
