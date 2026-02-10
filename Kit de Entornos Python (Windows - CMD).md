@@ -36,8 +36,8 @@ pip list
 | Archivo / Carpeta | Descripción |
 |--------------------|-------------|
 | `requirements.txt` | Ejemplo de archivo `requirements.txt` para instalar dependencias rápidamente en un entorno virtual. |
-| `Scripts CMD/reset_venv_from_requirements.cmd` | Elimina el entorno actual y lo reconstruye desde el archivo `requirements.txt`. |
 | `Scripts CMD/setup_venv_from_requirements.cmd` | Crea un entorno virtual nuevo e instala las dependencias desde `requirements.txt`. |
+| `Scripts CMD/reset_venv_from_requirements.cmd` | Elimina el entorno actual y lo reconstruye desde el archivo `requirements.txt`. |
 
 ---
 
@@ -48,8 +48,8 @@ mi_proyecto/
  ├─ .venv/
  ├─ requirements.txt
  └─ Scripts CMD/
-     ├─ reset_venv_from_requirements.cmd
-     └─ setup_venv_from_requirements.cmd
+     ├─ setup_venv_from_requirements.cmd
+     └─ reset_venv_from_requirements.cmd
 ```
 
 ---
@@ -109,8 +109,8 @@ Te permiten crear, reiniciar o abrir tu entorno virtual en segundos ⚡
 
 | Script | Acción principal | Cuándo usarlo |
 |--------|------------------|----------------|
-| `reset_venv_from_requirements.cmd` | Borra y recrea el entorno desde cero. | Cuando el entorno está roto o quieres empezar limpio. |
 | `setup_venv_from_requirements.cmd` | Crea y configura el entorno desde `requirements.txt`. | Primera vez o al actualizar dependencias. |
+| `reset_venv_from_requirements.cmd` | Borra y recrea el entorno desde cero. | Cuando el entorno está roto o quieres empezar limpio. |
 
 ---
 
@@ -119,11 +119,11 @@ Te permiten crear, reiniciar o abrir tu entorno virtual en segundos ⚡
 Abre una terminal **CMD** dentro del proyecto y ejecuta:
 
 ```cmd
-# Reiniciar el entorno desde cero
-"Scripts CMD\reset_venv_from_requirements.cmd"
-
 # Crear entorno e instalar dependencias
 "Scripts CMD\setup_venv_from_requirements.cmd"
+
+# Reiniciar el entorno desde cero
+"Scripts CMD\reset_venv_from_requirements.cmd"
 ```
 </details>
 
@@ -146,6 +146,45 @@ tzdata==2025.2
 ---
 
 <details><summary>Scripts CMD</summary>
+
+<details><summary>setup_venv_from_requirements.cmd</summary>
+
+```cmd
+@echo off
+
+REM Ir a la raiz del proyecto
+cd /d "%~dp0\.."
+
+REM Directorio del entorno virtual
+set VENV_DIR=.venv
+
+if not exist "%VENV_DIR%" (
+    echo [*] Creando entorno virtual en %VENV_DIR%
+    python -m venv %VENV_DIR%
+)
+
+echo [*] Activando entorno
+call %VENV_DIR%\Scripts\activate.bat
+
+echo [*] Actualizando pip
+python -m pip install --upgrade pip
+
+if exist requirements.txt (
+    echo [*] Instalando dependencias desde requirements.txt
+    pip install -r requirements.txt
+) else (
+    echo [!] No se encontro requirements.txt en la raiz del proyecto
+)
+
+echo.
+echo [*] Entorno configurado y activo
+python --version
+where python
+pip list
+
+cmd /K
+```
+</details>
 
 <details><summary>reset_venv_from_requirements.cmd</summary>
 
@@ -200,45 +239,6 @@ if /I "%CONFIRM%"=="S" (
     echo [!] Operacion cancelada por el usuario
     pause
 )
-```
-</details>
-
-<details><summary>setup_venv_from_requirements.cmd</summary>
-
-```cmd
-@echo off
-
-REM Ir a la raiz del proyecto
-cd /d "%~dp0\.."
-
-REM Directorio del entorno virtual
-set VENV_DIR=.venv
-
-if not exist "%VENV_DIR%" (
-    echo [*] Creando entorno virtual en %VENV_DIR%
-    python -m venv %VENV_DIR%
-)
-
-echo [*] Activando entorno
-call %VENV_DIR%\Scripts\activate.bat
-
-echo [*] Actualizando pip
-python -m pip install --upgrade pip
-
-if exist requirements.txt (
-    echo [*] Instalando dependencias desde requirements.txt
-    pip install -r requirements.txt
-) else (
-    echo [!] No se encontro requirements.txt en la raiz del proyecto
-)
-
-echo.
-echo [*] Entorno configurado y activo
-python --version
-where python
-pip list
-
-cmd /K
 ```
 </details>
 
