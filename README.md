@@ -75,8 +75,8 @@ ChillTrait.insurgentExclusive = true
 function ChillTrait.Create()
     local chill = TraitFactory.addTrait("Chill", getText("UI_trait_Chill"), 2, getText("UI_trait_ChillDesc"), false, false);
     ----
-    --chill:addXPBoost(Perks.Fitness, int);	
-    --chill:addXPBoost(Perks.Strength, int);
+    chill:addXPBoost(Perks.Fitness, 10);	
+    chill:addXPBoost(Perks.Strength, 10);
     ----
     chill:addXPBoost(Perks.Sprinting, 10);
     chill:addXPBoost(Perks.Lightfoot, 10);
@@ -104,7 +104,7 @@ function ChillTrait.Create()
     --chill:addXPBoost(Perks.Reloading, int);
     ----
     chill:addXPBoost(Perks.Fishing, 10);
-    chill:addXPBoost(Perks.Trapping, 10);
+    --chill:addXPBoost(Perks.Trapping, int);
     chill:addXPBoost(Perks.PlantScavenging, 10);
     ----
     return chill;
