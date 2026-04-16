@@ -63,7 +63,7 @@ function StringTrait.RegisterEvents()
 end
 ```
 
-<details><summary>Chill</summary>
+<details><summary>ChillTrait.lua</summary>
 
 ```lua
 require "Insurgent/InsurgentTraitDefinitions"
