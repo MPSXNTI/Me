@@ -63,13 +63,6 @@ function StringTrait.RegisterEvents()
 end
 ```
 
-<details><summary>Test</summary>
-
-```lua
-
-```
-</details>
-
 <details><summary>Chill</summary>
 
 ```lua
@@ -85,22 +78,22 @@ function ChillTrait.Create()
     --chill:addXPBoost(Perks.Fitness, int);	
     --chill:addXPBoost(Perks.Strength, int);
     ----
-    chill:addXPBoost(Perks.Sprinting, int);
-    chill:addXPBoost(Perks.Lightfoot, int);
-    chill:addXPBoost(Perks.Nimble, int);
-    chill:addXPBoost(Perks.Sneak, int);
+    chill:addXPBoost(Perks.Sprinting, 10);
+    chill:addXPBoost(Perks.Lightfoot, 10);
+    chill:addXPBoost(Perks.Nimble, 10);
+    chill:addXPBoost(Perks.Sneak, 10);
     ----
     --chill:addXPBoost(Perks.Axe, int);
     --chill:addXPBoost(Perks.Blunt, int);
     --chill:addXPBoost(Perks.SmallBlunt, int);
     --chill:addXPBoost(Perks.LongBlade, int);
-    chill:addXPBoost(Perks.SmallBlade, int);
-    chill:addXPBoost(Perks.Spear, int);
-    chill:addXPBoost(Perks.Maintenance, int);
+    chill:addXPBoost(Perks.SmallBlade, 10);
+    chill:addXPBoost(Perks.Spear, 10);
+    chill:addXPBoost(Perks.Maintenance, 10);
     ----
-    chill:addXPBoost(Perks.Woodwork, int);
-    chill:addXPBoost(Perks.Cooking, int);
-    chill:addXPBoost(Perks.Farming, int);
+    chill:addXPBoost(Perks.Woodwork, 10);
+    chill:addXPBoost(Perks.Cooking, 10);
+    chill:addXPBoost(Perks.Farming, 10);
     --chill:addXPBoost(Perks.Doctor, int);
     --chill:addXPBoost(Perks.Electricity, int);
     --chill:addXPBoost(Perks.MetalWelding, int);
@@ -110,11 +103,73 @@ function ChillTrait.Create()
     --chill:addXPBoost(Perks.Aiming, int);
     --chill:addXPBoost(Perks.Reloading, int);
     ----
-    chill:addXPBoost(Perks.Fishing, int);
-    chill:addXPBoost(Perks.Trapping, int);
-    chill:addXPBoost(Perks.PlantScavenging, int);
+    chill:addXPBoost(Perks.Fishing, 10);
+    chill:addXPBoost(Perks.Trapping, 10);
+    chill:addXPBoost(Perks.PlantScavenging, 10);
     ----
     return chill;
+end
+```
+</details>
+
+<details><summary>TestTrait.lua</summary>
+
+```lua
+require "Insurgent/InsurgentTraitDefinitions"
+
+TestTrait = CreateInsurgentTrait()
+TestTrait.name = "Test"
+TestTrait.insurgentExclusive = true
+
+function TestTrait.Create()
+    local test = TraitFactory.addTrait("Test", getText("UI_trait_Test"), 2, getText("UI_trait_TestDesc"), false, false);
+    ----
+    test:addXPBoost(Perks.Fitness, 10);	
+    test:addXPBoost(Perks.Strength, 10);
+    ----
+    test:addXPBoost(Perks.Sprinting, 10);
+    test:addXPBoost(Perks.Lightfoot, 10);
+    test:addXPBoost(Perks.Nimble, 10);
+    test:addXPBoost(Perks.Sneak, 10);
+    ----
+    test:addXPBoost(Perks.Axe, 10);
+    test:addXPBoost(Perks.Blunt, 10);
+    test:addXPBoost(Perks.SmallBlunt, 10);
+    test:addXPBoost(Perks.LongBlade, 10);
+    test:addXPBoost(Perks.SmallBlade, 10);
+    test:addXPBoost(Perks.Spear, 10);
+    test:addXPBoost(Perks.Maintenance, 10);
+    ----
+    test:addXPBoost(Perks.Woodwork, 10);
+    test:addXPBoost(Perks.Cooking, 10);
+    test:addXPBoost(Perks.Farming, 10);
+    test:addXPBoost(Perks.Doctor, 10);
+    test:addXPBoost(Perks.Electricity, 10);
+    test:addXPBoost(Perks.MetalWelding, 10);
+    test:addXPBoost(Perks.Mechanics, 10);
+    test:addXPBoost(Perks.Tailoring, 10);
+    ----
+    test:addXPBoost(Perks.Aiming, 10);
+    test:addXPBoost(Perks.Reloading, 10);
+    ----
+    test:addXPBoost(Perks.Fishing, 10);
+    test:addXPBoost(Perks.Trapping, 10);
+    test:addXPBoost(Perks.PlantScavenging, 10);
+    ----
+    return test;
+end
+
+function TestTrait.OnNewGame(player)
+    if not player:HasTrait("Test") then
+        return
+    end
+
+    player:getInventory():AddItem("Base.WoodAxe");
+    player:getInventory():AddItem("Base.Saw");
+end
+
+function TestTrait.RegisterEvents()
+    Events.OnNewGame.Add(TestTrait.OnNewGame)
 end
 ```
 </details>
