@@ -62,3 +62,59 @@ function StringTrait.RegisterEvents()
     Events.OnNewGame.Add(StringTrait.OnNewGame)
 end
 ```
+
+<details><summary>Test</summary>
+
+```lua
+
+```
+</details>
+
+<details><summary>Chill</summary>
+
+```lua
+require "Insurgent/InsurgentTraitDefinitions"
+
+ChillTrait = CreateInsurgentTrait()
+ChillTrait.name = "Chill"
+ChillTrait.insurgentExclusive = true
+
+function ChillTrait.Create()
+    local chill = TraitFactory.addTrait("Chill", getText("UI_trait_Chill"), 2, getText("UI_trait_ChillDesc"), false, false);
+    ----
+    --chill:addXPBoost(Perks.Fitness, int);	
+    --chill:addXPBoost(Perks.Strength, int);
+    ----
+    chill:addXPBoost(Perks.Sprinting, int);
+    chill:addXPBoost(Perks.Lightfoot, int);
+    chill:addXPBoost(Perks.Nimble, int);
+    chill:addXPBoost(Perks.Sneak, int);
+    ----
+    --chill:addXPBoost(Perks.Axe, int);
+    --chill:addXPBoost(Perks.Blunt, int);
+    --chill:addXPBoost(Perks.SmallBlunt, int);
+    --chill:addXPBoost(Perks.LongBlade, int);
+    chill:addXPBoost(Perks.SmallBlade, int);
+    chill:addXPBoost(Perks.Spear, int);
+    chill:addXPBoost(Perks.Maintenance, int);
+    ----
+    chill:addXPBoost(Perks.Woodwork, int);
+    chill:addXPBoost(Perks.Cooking, int);
+    chill:addXPBoost(Perks.Farming, int);
+    --chill:addXPBoost(Perks.Doctor, int);
+    --chill:addXPBoost(Perks.Electricity, int);
+    --chill:addXPBoost(Perks.MetalWelding, int);
+    --chill:addXPBoost(Perks.Mechanics, int);
+    --chill:addXPBoost(Perks.Tailoring, int);
+    ----
+    --chill:addXPBoost(Perks.Aiming, int);
+    --chill:addXPBoost(Perks.Reloading, int);
+    ----
+    chill:addXPBoost(Perks.Fishing, int);
+    chill:addXPBoost(Perks.Trapping, int);
+    chill:addXPBoost(Perks.PlantScavenging, int);
+    ----
+    return chill;
+end
+```
+</details>
