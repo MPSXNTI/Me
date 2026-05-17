@@ -115,6 +115,7 @@ function TestTrait.OnNewGame(player)
         return
     end
 
+    -- Asignado según el rol profesional. player:getInventory():AddItem("Base.HuntingKnife");
     player:getInventory():AddItem("Base.WoodAxe");
     player:getInventory():AddItem("Base.Saw");
 end
