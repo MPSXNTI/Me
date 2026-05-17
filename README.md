@@ -118,6 +118,14 @@ function TestTrait.OnNewGame(player)
     -- Asignado según el rol profesional. player:getInventory():AddItem("Base.HuntingKnife");
     player:getInventory():AddItem("Base.WoodAxe");
     player:getInventory():AddItem("Base.Saw");
+
+    --[[
+    player:getInventory():AddItem("Base.Sledgehammer");
+
+    local weapon = InsurgentWeaponUtil.addWeapon(player, "Base.Shotgun", {"Base.AmmoStraps", "Base.ChokeTubeFull", "Base.RecoilPad", "Base.x2Scope"})
+    InsurgentWeaponUtil.addMags(player, "Base.ShotgunShellsBox", 2)
+    InsurgentWeaponUtil.equipAndFullyLoadWeapon(player, weapon, "Base.ShotgunShells")
+    ]]--
 end
 
 function TestTrait.RegisterEvents()
