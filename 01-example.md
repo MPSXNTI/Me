@@ -25,8 +25,7 @@ format quick fs=ntfs label="ntfs"
 assign letter=W
 ```
 ## 3. Restauración de la imagen del sistema mediante Clonezilla
-Restaure la imagen correspondiente a la **partición de arranque EFI** sobre la partición `boot` creada en el paso anterior.
-Restaure la imagen correspondiente al **sistema operativo** sobre la partición `ntfs`.
+Restaure la imagen correspondiente a la **partición de arranque EFI** sobre la partición `boot` creada en el paso anterior.<br>Restaure la imagen correspondiente al **sistema operativo** sobre la partición `ntfs`.
 ## 4. Modificación del tipo de partición EFI en Windows
 ```cmd
 diskpart
