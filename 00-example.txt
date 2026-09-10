@@ -1,3 +1,5 @@
 Lenovo ThinkPad T480 20L6A0LJCL, yo actualice mi computador y ahora tiene 24GB de ram y una SSD de 1TB.
 
+LOQ 15IRX9 83DV00P6CL
+
 Get-CimInstance Win32_PhysicalMemoryArray | Select-Object MaxCapacity, MemoryDevices
