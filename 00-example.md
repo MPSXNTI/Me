@@ -1,3 +1,0 @@
-```cmd
-Get-CimInstance Win32_PhysicalMemoryArray | Select-Object MaxCapacity, MemoryDevices
-```
